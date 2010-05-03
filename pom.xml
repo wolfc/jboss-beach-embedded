@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <parent>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-parent</artifactId>
+      <version>4</version>
+   </parent>
+
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>org.jboss.beach</groupId>
+   <artifactId>jboss-beach-embedded</artifactId>
+   <version>0.1.0-SNAPSHOT</version>
+
+   <packaging>jar</packaging>
+
+   <name>JBoss Beach Embedded</name>
+
+   <description>
+      A day at the beach with JBoss Embedded.
+   </description>
+
+   <build>
+      <plugins>
+         <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencyManagement>
+      <dependencies>
+         <!--
+         <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-component-matrix</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-depchain</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+            <scope>import</scope>
+         </dependency>
+         -->
+      </dependencies>
+   </dependencyManagement>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.jboss.alunite</groupId>
+         <artifactId>jboss-alunite-classloading</artifactId>
+         <version>0.1.0-SNAPSHOT</version>
+         <exclusions>
+            <!-- not a match with AS 6 -->
+            <exclusion>
+               <groupId>org.jboss.logging</groupId>
+               <artifactId>jboss-logging-spi</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <!-- TODO: how do I get jbossall-client.jar in here -->
+      <!-- don't ever do this
+      <dependency>
+         <groupId>org.jboss.jbossas</groupId>
+         <artifactId>jboss-as-client</artifactId>
+         <version>6.0.0-SNAPSHOT</version>
+         <scope>system</scope>
+         <systemPath>/home/carlo/work/jboss-head/build/target/jboss-6.0.0-SNAPSHOT/client/jbossall-client.jar</systemPath>
+      </dependency>
+      -->
+      <dependency>
+         <groupId>org.jboss.logging</groupId>
+         <artifactId>jboss-logging</artifactId>
+         <version>3.0.0.Beta2</version>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.logmanager</groupId>
+         <artifactId>jboss-logmanager</artifactId>
+         <version>1.2.0.CR2</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.jboss.naming</groupId>
+         <artifactId>jnp-client</artifactId>
+         <version>5.0.5.Final</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>1.2.14</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- get the right version, see jboss-embedded-api -->
+         <groupId>org.jboss.bootstrap</groupId>
+         <artifactId>jboss-bootstrap-api-as</artifactId>
+         <version>2.1.0-alpha-5</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.embedded</groupId>
+         <artifactId>jboss-embedded-api</artifactId>
+         <version>1.0.0-alpha-3</version>
+         <scope>test</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>org.jboss.bootstrap</groupId>
+               <artifactId>jboss-bootstrap-api-as</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.spec.javax.ejb</groupId>
+         <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+         <version>1.0.0.Beta2</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-core</artifactId>
+         <version>1.8.4</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.4</version>
+         <!--
+         <scope>test</scope>
+         -->
+      </dependency>
+   </dependencies>
+</project>
